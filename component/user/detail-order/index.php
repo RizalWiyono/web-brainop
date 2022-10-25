@@ -361,9 +361,13 @@
                                                 $done  = mysqli_query($connect, "SELECT * FROM `listtask` WHERE iddetailOrder=$progid && status='Done'");
                                                 // $new_width = (mysqli_num_rows($done) / 100) * mysqli_num_rows($total);
 
-                                                $count1 = mysqli_num_rows($done) / mysqli_num_rows($total);
-                                                $count2 = $count1 * 100;
-                                                $new_width = number_format($count2, 0);
+                                                if(mysqli_num_rows($done) > 0 || mysqli_num_rows($total) > 0) {
+                                                    $count1 = mysqli_num_rows($done) / mysqli_num_rows($total);
+                                                    $count2 = $count1 * 100;
+                                                    $new_width = number_format($count2, 0);
+                                                }else{
+                                                    $new_width = 0;
+                                                }
                                             ?>
                                                 <h1 class="mt-4">Persentase Selesai</h1>
                                                 <span class="badge badge-pill badge-success">

@@ -426,7 +426,7 @@
 		Swal.fire({
 			position: 'top-end',
 			icon: 'success',
-			title: 'Data Berhasil Disimpan!',
+			title: 'Data Berhasil Disimpan  !',
 			showConfirmButton: false,
 			timer: 1500
 		})

@@ -85,7 +85,13 @@
                         $new_width = number_format($count2, 0);
                         ?>
                         <p>Deadline : <strong><?=$row['deadline']?></strong></p>
-                            <p style="margin: 0;"><?=$new_width?>%</p>
+                            <?php
+                            if($new_width !== '100'){
+                                echo '<p style="margin: 0;">'.$new_width.'%</p>';
+                            }else{
+                                echo '<p style="margin: 0;">Done</p>';
+                            }
+                            ?>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: <?=$new_width?>%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
                             </div>

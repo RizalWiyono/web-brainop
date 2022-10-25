@@ -18,6 +18,7 @@
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="../../../src/images/favicon.png">
+    <script type="text/javascript" src="../../../src/ckeditor/ckeditor.js"></script>
 
 	<!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -139,7 +140,7 @@
             <div class="accordion" id="accordionExample">
                 <?php
                 $no = 1;
-                $queryChat  = mysqli_query($connect, "SELECT detailorder.company_name, detailorder.iddetailOrder, detailorder.project_name, detailorder.project_package, datauser.name, appcategory.name as name_app, detailorder.resource, detailorder.description, detailorder.deadline FROM `detailorder` INNER JOIN datauser ON detailorder.iddataUser = datauser.iddataUser INNER JOIN appcategory ON detailorder.idappCategory = appcategory.idappCategory WHERE status='Konsultasikan'");
+                $queryChat  = mysqli_query($connect, "SELECT detailorder.company_name, detailorder.iddetailOrder, detailorder.project_name, detailorder.project_package, datauser.name, appcategory.name as name_app, detailorder.resource, serviceprice.nominal, detailorder.description, detailorder.deadline FROM `detailorder` INNER JOIN datauser ON detailorder.iddataUser = datauser.iddataUser INNER JOIN appcategory ON detailorder.idappCategory = appcategory.idappCategory INNER JOIN serviceprice ON serviceprice.name = detailorder.project_package WHERE status='Konsultasikan'");
                 while($row = mysqli_fetch_array($queryChat)){ ?>
                 <div class="card">
                     <div class="card-header" id="heading<?=$no?>">
@@ -187,7 +188,9 @@
                                         <h1>Total Price</h1>
                                         <form action="fetch/updateOrder.php" method="post">
                                             <input type="hidden" value="<?=$row['iddetailOrder']?>" class="form-control" name="idParam">
-                                            <input type="number" class="form-control mt-2" name="price" style="height: 30px;">
+                                            <input type="text" name="price" id="dengan-rupiah" class="form-control">
+                                            <span style="font-size: 12px;">+ <?=$row['nominal']?></span>
+                                            <input type="hidden" name="adding_price" value="<?=$row['nominal']?>">
                                             <button>Send to client</button>
                                         </form>
                                     </div>
@@ -304,78 +307,78 @@
 
                             <!-- Modal -->
                             <div class="modal fade" id="mdUpd<?=$row['iddetailOrder']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content p-1">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambahan</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form action="fetch/updateDataOrder.php" method="post">
-                                    <input type="hidden" name="param" value="<?=$row['iddetailOrder']?>">
-                                    <input type="hidden" name="price_order" value="<?=$row['price_order']?>">
-                                    <div class="modal-body" style="text-align: left;">
-                                        <label for="">Description</label>
-                                        <textarea name="desc" id="" class="form-control" cols="30" rows="5"><?=$row["description"]?></textarea>
+                                <div class="modal-dialog">
+                                    <div class="modal-content p-1">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambahan</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="fetch/updateDataOrder.php" method="post">
+                                        <input type="hidden" name="param" value="<?=$row['iddetailOrder']?>">
+                                        <input type="hidden" name="price_order" value="<?=$row['price_order']?>">
+                                        <div class="modal-body" style="text-align: left;">
+                                            <label for="">Description</label>
+                                            <textarea name="desc"  class="ckeditor" id="ckedtor" name="description" cols="30" id="" rows="5"><?=$row["description"]?></textarea>
 
-                                        <label class="mt-2" for="">Price</label>
-                                        <input type="text" name="newPrice" class="form-control" value="<?=$row["price_order"]?>">
+                                            <label class="mt-2" for="">Price</label>
+                                            <input type="text" name="newPrice" id="dengan-rupiah" class="form-control" value="<?=$row["price_order"]?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </form>
                                 </div>
-                            </div>
                             </div>
 
                             <div id="collapse<?=$no?>" class="collapse show" aria-labelledby="heading<?=$no?>" data-parent="#accordionExample">
-                            <div class="card-body detail-order-new">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div>
-                                                <h1>Company Name</h1>
-                                                <p><?=$row["company_name"]?></p>
+                                <div class="card-body detail-order-new">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div>
+                                                    <h1>Company Name</h1>
+                                                    <p><?=$row["company_name"]?></p>
+                                                </div>
+                                                <div>
+                                                    <h1>Nama</h1>
+                                                    <p><?=$row["name"]?></p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <h1>Nama</h1>
-                                                <p><?=$row["name"]?></p>
+                                            <div class="col-md-5">
+                                                <div>
+                                                    <h1>App Category</h1>
+                                                    <p><?=$row["name_app"]?></p>
+                                                </div>
+                                                <div>
+                                                    <h1>Resource</h1>
+                                                    <p><?=$row["resource"]?></p>
+                                                </div>
+                                                <div>
+                                                    <h1>Description</h1>
+                                                    <p><?=$row["description"]?></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div>
-                                                <h1>App Category</h1>
-                                                <p><?=$row["name_app"]?></p>
-                                            </div>
-                                            <div>
-                                                <h1>Resource</h1>
-                                                <p><?=$row["resource"]?></p>
-                                            </div>
-                                            <div>
-                                                <h1>Description</h1>
-                                                <p><?=$row["description"]?></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div>
-                                                <h1>Deadline</h1>
-                                                <span class="badge badge-pill badge-warning mb-3"><?=$row["deadline"]?></span>
-                                            </div>
-                                            <div>
-                                                <h1>Total Price</h1>
-                                                <span class="badge badge-pill badge-info"><?=rupiah($row["price_order"])?></span>
-                                            </div>
-                                            <div class="mt-4">
-                                                <span class="badge badge-pill badge-danger">Paid off</span>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <h1>Deadline</h1>
+                                                    <span class="badge badge-pill badge-warning mb-3"><?=$row["deadline"]?></span>
+                                                </div>
+                                                <div>
+                                                    <h1>Total Price</h1>
+                                                    <span class="badge badge-pill badge-info">Rp. <?=$row["price_order"]?></span>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <span class="badge badge-pill badge-danger">Paid off</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                 </div>
                 <?php $no++; } ?>
             </div>    
@@ -428,6 +431,30 @@
 			}
 		}
 	};
+
+    var dengan_rupiah = document.getElementById('dengan-rupiah');
+    dengan_rupiah.addEventListener('keyup', function(e)
+    {
+        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
+    }
 
 	var param = getUrlParameter('process');
 	if(param === "success"){
