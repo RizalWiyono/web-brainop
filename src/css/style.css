@@ -1,0 +1,861 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+
+* {
+	font-family: "Cabin" !important;
+}
+
+.flex {
+	display: flex;
+}
+
+.img-login {
+	width: 70%;
+	margin-left: 10%;
+	margin-top: 7%;
+}
+
+.sect-left-login { 
+	width: 100%;
+	padding: 15% 10%;
+}
+
+.btn-cta {
+	background: #98ACF8;
+	border: 0;
+	color: #2D2D2D;
+}
+
+.left-section {
+	width: 15%;
+	height: 100vh;
+	background: linear-gradient(100.44deg, #FFFFFF 0%, #F1F4FC 0.01%, #EEF7FF 100%);
+}
+
+.right-section {
+	width: 85%;
+}
+
+.nav-dashboard .header {
+	padding-top: 30px;
+}
+
+.nav-dashboard .header center img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.nav-dashboard .header h1 {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	/* identical to box height, or 136% */
+	display: flex;
+	align-items: center;
+	text-align: center;
+	display: block;
+	/* Text Color/Heading Color */
+	margin: 0;
+	color: #2D2D2D;
+	margin-top: 20px;
+}
+
+.nav-dashboard .header p {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	/* identical to box height, or 136% */
+	display: flex;
+	align-items: center;
+	text-align: center;
+	display: block;
+	/* Text Color/Heading Color */
+
+	color: #424242;
+}
+
+.nav-dashboard ul {
+	list-style: none;
+	padding: 0;
+}
+
+.nav-dashboard ul li a {
+	text-decoration: none;
+	color: #2D2D2D;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 8px 17px;
+}
+
+.nav-dashboard ul li a svg {
+	margin-right: 13px;
+}
+
+.nav-dashboard ul li a.active {
+	background-color: #98ACF8;
+	transition: 0.5s;
+}
+
+.nav-dashboard ul li a.active svg path {
+	fill: #FFF;
+}
+
+.nav-dashboard ul li a.active span {
+	color: #FFF;
+}
+
+.nav-dashboard ul li a:hover {
+	background-color: #98ACF8;
+	transition: 0.5s;
+}
+
+.nav-dashboard ul li a:hover svg path {
+	fill: #FFF;
+}
+
+.nav-dashboard ul li a:hover span {
+	color: #FFF;
+}
+
+.right-section .header h1 {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 40px;
+}
+
+button.action-edit {
+	border: 0;
+	background: #98ACF8;
+	border-radius: 4px;
+	padding: 2px 15px;
+}
+
+button.action-edit:hover {
+	background: #8798dd;
+	transition: 0.5s;
+}
+
+button.action-save {
+	border: 0;
+	background: #B088F9;
+	border-radius: 4px;
+	padding: 2px 15px;
+}
+
+button.action-save:hover {
+	background: #9573d5;
+	transition: 0.5s;
+}
+
+button.action-validate {
+	border: 0;
+	background: #B088F9;
+	border-radius: 4px;
+	padding: 2px 15px;
+}
+
+button.action-validate:hover {
+	background: rgb(130, 101, 184);
+	transition: 0.5s;
+}
+
+button.action-validate a {
+	color: #2D2D2D;
+	text-decoration: none;
+}
+
+button.action-delete {
+	border: 1px solid #98ACF8;
+	border-radius: 4px;
+	padding: 2px 15px;
+	background-color: transparent;
+}
+
+button.action-delete:hover {
+	background: #98ACF8;
+	transition: 0.5s;
+}
+
+/* Modal */
+.modal-content {
+	text-align: center !important;
+	position: relative;
+	padding: 45px 0;
+    border-radius: 15px;
+}
+
+.modal-content h1 {
+	font-family: 'Cabin' !important;
+	font-style: normal !important;
+	font-weight: 500 !important;
+	font-size: 28px !important;
+	line-height: 36px !important;
+	/* identical to box height, or 129% */
+
+	align-items: center !important;
+	text-align: center !important;
+	letter-spacing: -0.02em !important;
+
+	/* Text Color/Paragraph Color */
+
+	color: #424242 !important;
+}
+
+.modal-content p {
+	font-family: 'Cabin' !important;
+	font-style: normal !important;
+	font-weight: 400 !important;
+	font-size: 15px !important;
+	line-height: 28px !important;
+	/* identical to box height, or 129% */
+
+	align-items: center !important;
+	text-align: center !important;
+	letter-spacing: -0.02em !important;
+
+	/* Text Color/Paragraph Color */
+
+	color: #424242 !important;
+}
+
+.modal-content .button {
+	margin:0 auto;
+}
+
+.modal-content .button .cancel {
+	background: #98ACF8;
+	border-radius: 6px;
+	border: 0;
+	color: #2D2D2D;
+	padding: 5px 10px;
+	margin-right: 15px;
+}
+
+.modal-content .button .delete {
+	background: transparent;
+	border-radius: 6px;
+	border: 1px solid #98ACF8;
+	color: #2D2D2D;
+	padding: 5px 10px;
+}
+
+.search {
+	position: relative;
+}
+
+.search input {
+	border-radius: 20px;
+	border: 1px solid #9D9D9D;
+	padding-left: 30px;
+	outline: none;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 22px;
+	/* identical to box height, or 157% */
+	padding-top: 3px;
+	padding-bottom: 3px;
+
+	color: #C0C0C0;
+}
+
+.search button {
+	position: absolute;
+	top: 1px;
+	left: 5px;
+	background-color: transparent;
+	border: 0;
+}
+
+.nav-menu-profile .dropdown-toggle {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	/* identical to box height, or 140% */
+
+	display: flex;
+	align-items: center;
+
+	/* General Color/Color 1 */
+
+	color: #B088F9;
+}
+
+.nav-menu-profile .dropdown-menu {
+	font-size: 10px;
+	right: 0;
+    left: auto;
+}
+
+.main-content {
+	background: #F6F1FF;
+	border-radius: 45px 45px 0px 0px;
+	display: grid
+}
+
+.place-br-card {
+	width: 75%;
+	display: flex;
+	background: #FFF;
+	justify-content: space-between;
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.br-card {
+	padding: 20px;
+	width: 80%;
+	border-radius: 15px;
+}
+
+.place-br-card .move-card {
+	height: 100%;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    display: flex;
+    color: #FFF;
+    border: 0;
+    cursor: pointer;
+    background-color: #8798dd;
+}
+
+.br-card p {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 22px;
+	/* identical to box height, or 157% */
+
+	display: flex;
+	align-items: center;
+
+	/* Text Color/Paragraph Color */
+
+	color: #424242;
+}
+
+.br-card h1 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 26px;
+	/* identical to box height, or 144% */
+
+	display: flex;
+	align-items: center;
+
+	/* Text Color/Heading Color */
+
+	color: #2D2D2D;
+}
+
+.main-header p {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 28px;
+	/* identical to box height, or 140% */
+
+	display: flex;
+	align-items: center;
+
+	/* General Color/Secondary Color */
+
+	color: #98ACF8;
+}
+
+.main-header h1 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 40px;
+	/* identical to box height, or 125% */
+
+	display: flex;
+	align-items: center;
+
+	/* Text Color/Heading Color */
+
+	color: #2D2D2D;
+
+}
+
+.br-card-table thead tr th {
+	width: 25%;
+}
+
+.br-card-table thead tr th span {
+	padding: 1px 20px;
+	color: #FFF;
+	border-radius: 35px;
+}
+
+.br-card tbody {
+	margin-top: 20px;
+}
+
+.top-home-page {
+	background: linear-gradient(100.44deg, #FFFFFF 0%, #F1F4FC 0.01%, #EEF7FF 100%);
+	width: 100%;
+	height: 500px;
+	position: relative;
+	align-items: center;
+}
+
+.top-home-page img {
+	width: 580px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.top-home-page h1 {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 68px;
+	line-height: 76px;
+	/* or 112% */
+
+	display: flex;
+	align-items: center;
+
+	/* Text Color/Heading Color */
+
+	color: #2D2D2D;
+}
+
+.top-home-page p {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 28px;
+	/* or 140% */
+
+	display: flex;
+	align-items: center;
+
+	/* Text Color/Paragraph Color */
+
+	color: #424242;
+}
+
+.consult-home-page {
+	width: 100%;
+	height: 500px;
+	position: relative;
+}
+
+.consult-home-page img {
+	width: 380px;
+	object-fit: cover;
+}
+
+.consult-home-page .desc {
+	background: #BEDCFA;
+	border-radius: 0px 20px 0px 0px;
+}
+
+.choose-us-home-page .list img {
+	width: 100px;
+}
+
+.title-content {
+	text-align: center;
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 68px;
+	line-height: 76px;
+	/* identical to box height, or 112% */
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	/* Text Color/Heading Color */
+
+	color: #2D2D2D;
+}
+
+.choose-us-home-page .list h1 {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 34px;
+	line-height: 42px;
+	/* identical to box height, or 124% */
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	/* Text Color/Heading Color */
+
+	color: #2D2D2D;
+}
+
+.choose-us-home-page .list p {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 28px;
+	/* or 140% */
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	/* Text Color/Paragraph Color */
+
+	color: #424242;
+}
+
+.sidebar-overlay {
+	position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-overlay .content {
+	position: absolute;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    background: #FFF;
+	box-shadow: -12px 0px 46px -4px rgba(0, 0, 0, 0.16);
+	border-radius: 20px 0px 0px 20px;
+    z-index: 2;
+	padding: 30px;
+}
+
+.sidebar-overlay .overlay {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+	background: rgba(45, 45, 45, 0.25);
+}
+
+.sidebar-overlay .content h1 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 36px;
+	/* identical to box height, or 129% */
+
+	display: flex;
+	align-items: center;
+
+	/* Text Color/Heading Color */
+
+	color: #2D2D2D;
+}
+
+.sidebar-overlay .content h3 {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 30px;
+
+	margin-top: 20px;
+
+	display: flex;
+	align-items: center;
+
+	color: #BFBFBF;
+}
+
+.sidebar-overlay .content button {
+	background: #98ACF8;
+	border-radius: 10px;
+	border: 0;
+	width: 100%;
+	padding: 5px;
+	margin-top: 40px;
+}
+
+.btn-add-task {
+	font-size: 20px;
+    position: absolute;
+    font-family: sans-serif;
+    right: 20px;
+    bottom: 20px;
+    width: 30px;
+    height: 31px;
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: center;
+    background: #98ACF8;
+    box-shadow: 3px 0px 20px rgb(0 0 0 / 19%);
+    color: #FFF;
+    border-radius: 37px;
+	cursor: pointer;
+}
+
+.title-section {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 76px;
+	text-align: center;
+	color: #2D2D2D;
+}
+
+.place-pricing {
+	background: #FFFFFF;
+	border-radius: 20px;
+	border: 3px solid #98ACF8;
+	padding: 20px;
+}
+
+.place-pricing h2 {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.4rem;
+	line-height: 36px;
+	text-align: center;
+	color: #B088F9;
+}
+
+.place-pricing p {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 36px;
+	text-align: center;
+	color: #2D2D2D;
+}
+
+.place-pricing ul {
+	text-decoration: none;
+	list-style: none;
+	padding: 0;
+}
+
+.place-pricing ul li span {
+	font-weight: 400;
+	color: #424242;
+	margin-left: 10px;
+}
+
+.place-pricing h5 {
+	font-weight: 400;
+	color: #424242;
+	margin-left: 10px;
+}
+
+.btn-primer {
+	background: #98ACF8;
+	border-radius: 8px;
+	border: 0;
+	width: 100%;
+	padding: 10px;
+}
+
+.place-chat {
+	background: #FFFFFF;
+	box-shadow: 0px 0px 42px -10px rgba(0, 0, 0, 0.11);
+	border-radius: 35px;
+	padding: 20px;
+}
+
+.place-chat .header {
+	display: flex;
+}
+
+.place-chat .header h1 {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	color: #2D2D2D;
+	padding: 0;
+	margin-left: 20px;
+}
+
+.place-chat .header p {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	color: #2D2D2D;
+	padding: 0;
+}
+
+.place-chat .header img {
+	border-radius: 300px;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+}
+
+.chat-area {
+	display: flex;
+	justify-content: space-between;
+}
+
+.chat-user {
+	background: #BEDCFA;
+	border-radius: 10px 10px 0px 10px;
+	width: 50%;
+	padding: 5px 15px;
+	margin-top: 10px;
+}
+
+.chat-admin {
+	padding: 5px 15px;
+	background: #F5F5F5;
+	border-radius: 10px 10px 0px 10px;
+	width: 50%;
+	margin-top: 10px;
+}
+
+.place-message-out {
+	height: 278px;
+    overflow-x: scroll;
+}
+
+.place-message-out p {
+	margin: 0;
+}
+
+.place-chat .list-user-chat {
+	list-style: none;
+	padding: 0;
+}
+
+.place-chat .list-user-chat li a {
+	text-decoration: none;
+}
+
+.place-chat .list-user-chat h1 {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	padding: 0;
+	color: #2D2D2D;
+	margin: 0;
+}
+
+.place-chat .list-user-chat p {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	color: #424242;
+	padding: 0;
+	margin: 0;
+}
+
+.place-chat .list-user-chat li {
+	padding: 6px 18px;
+    border-radius: 15px;
+    background: #F5F5F5;
+}
+
+.contribution-task img {
+	width: 15px;
+	height: 15px;
+	object-fit: cover;
+	border-radius: 200px;
+	margin-right: 3px;
+}
+
+.detail-order-chat {
+	background: #BEDCFA;
+    border-radius: 10px 10px 0px 10px;
+    width: 50%;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.detail-order-chat h1 {
+	font-size: 20px;
+    margin: 0;
+}
+
+.detail-order-chat p {
+	font-size: 15px;
+}
+
+.detail-order-chat-admin {
+	background: #F5F5F5;
+	border-radius: 10px 10px 0px 10px;
+    width: 50%;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.detail-order-chat-admin h1 {
+	font-size: 20px;
+    margin: 0;
+}
+
+.detail-order-chat-admin p {
+	font-size: 15px;
+}
+
+.card-body.detail-order-new h1 {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	color: #424242;
+	margin: 0;
+}
+
+.card-body.detail-order-new p {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	color: #424242;
+}
+
+.card-body.detail-order-new button {
+	border: 0;
+	background-color: transparent;
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	color: #98ACF8;
+	padding: 0;
+}
+
+.sub-menu-detail-order a {
+	font-family: 'Cabin';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	color: #2D2D2D;
+}
+
+.card-footer.detail-order p {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+	color: #2D2D2D;
+}
+
+.modal-body .d-flex div h5 {
+	font-size: 12px;
+	margin-top: 10px;
+}
