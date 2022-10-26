@@ -140,9 +140,9 @@
             <div class="place-chat">
                 <div class="header">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/No_image_%28male%29.svg/450px-No_image_%28male%29.svg.png" alt="" srcset="">
-                    <div class="name">
+                    <div style="width: 100%; align-items: center;" class="name d-flex justify-content-between">
                         <h1>BrainOp CS</h1>
-                        <!-- <p>Customer Service</p> -->
+                        <img style="cursor: pointer;" src="../../../src/images/zoom.png" alt="">
                     </div>
                 </div>
                 <hr>

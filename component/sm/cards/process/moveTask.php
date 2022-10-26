@@ -12,6 +12,7 @@ while($row = mysqli_fetch_array($queryName)){
     $iddataEmployee = $row["iddataEmployee"];
 }
 
+date_default_timezone_set('Asia/Jakarta');
 $date = date("Y-m-d H:i:s");
 
 if($status === "Doing") {
