@@ -73,6 +73,15 @@
             while($row = mysqli_fetch_array($queryTask)){ ?>
                 <a href="/webBrainOp/component/sm/cards?id=<?=$row['iddetailOrder']?>">
                     <div class="br-card" style="width: 100%;">
+                        <?php
+                        date_default_timezone_set('Asia/Jakarta');
+                        $date = date("Y-m-d");
+                        if($row['deadline'] > $date){ ?>
+                            <div class="alert alert-danger" role="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                        <?php }
+                        ?>
                         <h1><?=$row["project_name"]?></h1>
                         <?php
                         $progid = $row['iddetailOrder'];
